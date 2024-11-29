@@ -1,0 +1,19 @@
+name: consulta_reservas  # Nome correto do seu projeto
+description: A new Flutter project
+
+publish_to: 'none' # Remove this line if you want to publish to pub.dev
+
+environment:
+  sdk: "^3.5.0"  # Adicione a restrição de versão
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0  # Adicionando o pacote flutter_lints
+
+flutter:
+  uses-material-design: true
