@@ -1,48 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';        // A página inicial
-import 'pages/reservas_page.dart';    // A página de reservas
-import 'pages/multimeios_page.dart';  // A página de multimeios
-import 'pages/auditorio_page.dart';   // A página de auditório
-
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Sistema de Reservas',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green.shade700,
-          elevation: 0,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green.shade600, // Cor dos botões
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            textStyle: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black, // Texto em preto
-            ),
-          ),
-        ),
-      ),
-      home: const HomePage(),
-    );
-  }
-}
+import 'reservas_page.dart';  // Importando a página de reservas
+import 'multimeios_page.dart'; // ou o caminho correto do arquivo
+import 'auditorio_page.dart';  // Importando a página de auditório
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -118,13 +77,13 @@ class HomePage extends StatelessWidget {
   ) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Icon(icon, size: 24, color: Colors.black), // Ícone em preto
+      icon: Icon(icon, size: 24, color: Colors.black),
       label: Text(
         label,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          color: Colors.black, // Texto em preto
+          color: Colors.black,
         ),
       ),
       style: ElevatedButton.styleFrom(

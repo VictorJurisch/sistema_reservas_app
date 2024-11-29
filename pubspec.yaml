@@ -9,11 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  table_calendar: ^3.0.0
+  http: ^1.2.2  # Atualização para a versão mais recente do http
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0  # Adicionando o pacote flutter_lints
+  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
