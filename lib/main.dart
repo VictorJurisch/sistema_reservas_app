@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';        // A página inicial
+import 'package:flutter/services.dart'; // Adicionando import para acessar SystemChrome
+// A página inicial
 import 'pages/reservas_page.dart';    // A página de reservas
 import 'pages/multimeios_page.dart';  // A página de multimeios
 import 'pages/auditorio_page.dart';   // A página de auditório
-
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Definir a barra de status para ser transparente
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Barra de status transparente
+      statusBarIconBrightness: Brightness.dark, // Ícones escuros na barra de status
+    ));
+
     return MaterialApp(
       title: 'Sistema de Reservas',
       theme: ThemeData(
@@ -21,8 +27,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green.shade700,
-          elevation: 0,
+          backgroundColor: Colors.transparent, // Barra de AppBar transparente
+          elevation: 0, // Remover a sombra da AppBar
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -51,60 +57,81 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sistema de Reservas'),
+        title: const Text('', style: TextStyle(color: Colors.black)), // Texto em preto
+        backgroundColor: Colors.transparent, // AppBar transparente
+        elevation: 0, // Remover a sombra
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Bem-vindo ao Sistema de Reservas',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
+      body: Center(  // Centralizando a coluna
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 180.0),  // Reduzir o padding superior
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center, // Centraliza horizontalmente
+            children: <Widget>[
+              // Imagem no topo com a URL
+              Container(
+                width: double.infinity,
+                height: 200, // Ajuste a altura conforme necessário
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage('https://i.imgur.com/sIFdbEJ.png'), // URL da imagem
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 40),
-            _buildButton(
-              context,
-              'Consultar Reservas',
-              Icons.search,
-              () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ReservasPage()),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            _buildButton(
-              context,
-              'Multimeios',
-              Icons.video_call,
-              () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MultimeiosPage()),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            _buildButton(
-              context,
-              'Auditório',
-              Icons.event,
-              () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AuditorioPage()),
-                );
-              },
-            ),
-          ],
+              const SizedBox(height: 20), // Espaço entre a imagem e os botões
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Espaça os botões igualmente
+                children: <Widget>[
+                  Expanded(
+                    child: _buildButton(
+                      context,
+                      'Multimeios',
+                      Icons.video_call,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MultimeiosPage()),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16), // Espaço entre os botões
+                  Expanded(
+                    child: _buildButton(
+                      context,
+                      'Auditório',
+                      Icons.event,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AuditorioPage()),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20), // Espaço entre os botões e o botão de consulta
+              Row( // Novo Row para o botão de consulta
+                children: <Widget>[
+                  Expanded(  // Expande o botão para ocupar a largura total
+                    flex: 2,  // Proporção de 2/3 da largura
+                    child: _buildButton(
+                      context,
+                      'Consultar Reservas',
+                      Icons.search,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ReservasPage()),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -122,17 +149,17 @@ class HomePage extends StatelessWidget {
       label: Text(
         label,
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 20, // Aumenta o tamanho do texto
           fontWeight: FontWeight.w600,
           color: Colors.black, // Texto em preto
         ),
       ),
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(double.infinity, 50),
+        minimumSize: const Size(230, 60), // Aumenta o tamanho mínimo dos botões
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 16), // Ajusta o padding vertical
       ),
     );
   }

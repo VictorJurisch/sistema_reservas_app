@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   table_calendar: ^3.0.0
   http: ^1.2.2  # Atualização para a versão mais recente do http
+  intl: ^0.17.0  # Corrigido a indentação
+
 
 dev_dependencies:
   flutter_test:

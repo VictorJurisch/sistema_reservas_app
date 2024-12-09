@@ -29,7 +29,7 @@ class ReservasPage extends StatelessWidget {
                   return ListTile(
                     title: Text('Reserva #$index'),
                     subtitle: Text('Detalhes da reserva #$index'),
-                    trailing: Icon(Icons.arrow_forward),
+                    trailing: const Icon(Icons.arrow_forward),
                     onTap: () {
                       // Navegar para detalhes da reserva ou fazer outra ação
                     },

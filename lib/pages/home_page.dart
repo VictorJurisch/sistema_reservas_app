@@ -15,9 +15,19 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            // Imagem no topo
+            Container(
+              width: double.infinity,
+              height: 200, // Ajuste a altura conforme necessário
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/imagem_topo.png'), // Coloque o caminho da sua imagem aqui
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20), // Espaço entre a imagem e os botões
             const Text(
               'Bem-vindo ao Sistema de Reservas',
               style: TextStyle(

@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Medium Phone API 32",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main.dart",
+        "deviceId": "flutter-medium-phone-api-32"
+      },
+      {
+        "name": "Flutter Emulator - Default",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main.dart",
+        "deviceId": "emulator-5554"
+      },
+      {
+        "name": "Flutter on Physical Device",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main.dart",
+        "deviceId": "physical"
+      }
+    ]
+  }
+  
