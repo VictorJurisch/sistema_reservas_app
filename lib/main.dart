@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Definir a barra de status para ser transparente
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent, // Barra de status transparente
       statusBarIconBrightness: Brightness.dark, // Ícones escuros na barra de status
     ));
@@ -26,13 +26,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent, // Barra de AppBar transparente
           elevation: 0, // Remover a sombra da AppBar
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green.shade600, // Cor dos botões
+            backgroundColor: const Color(0xFFF5F5F5), // Cor dos botões
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
@@ -69,15 +69,15 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               // Imagem no topo com a URL
               Container(
-                width: double.infinity,
-                height: 200, // Ajuste a altura conforme necessário
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage('https://i.imgur.com/sIFdbEJ.png'), // URL da imagem
-                    fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/reserva_sala_logo.png'), // Caminho local
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
               const SizedBox(height: 20), // Espaço entre a imagem e os botões
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Espaça os botões igualmente
@@ -145,7 +145,7 @@ class HomePage extends StatelessWidget {
   ) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Icon(icon, size: 24, color: Colors.black), // Ícone em preto
+      icon: Icon(icon, size: 24, color: Colors.green), // Ícone em verde
       label: Text(
         label,
         style: const TextStyle(

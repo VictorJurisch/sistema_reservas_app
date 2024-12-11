@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 200, // Ajuste a altura conforme necessário
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/imagem_topo.png'), // Coloque o caminho da sua imagem aqui
                   fit: BoxFit.cover,

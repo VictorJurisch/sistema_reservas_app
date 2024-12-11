@@ -1,7 +1,7 @@
 name: consulta_reservas  # Nome correto do seu projeto
 description: A new Flutter project
 
-publish_to: 'none' # Remove this line if you want to publish to pub.dev
+publish_to: 'none'  # Remove esta linha se quiser publicar no pub.dev
 
 environment:
   sdk: "^3.5.0"  # Adicione a restrição de versão
@@ -12,7 +12,7 @@ dependencies:
   table_calendar: ^3.0.0
   http: ^1.2.2  # Atualização para a versão mais recente do http
   intl: ^0.17.0  # Corrigido a indentação
-
+  mask_text_input_formatter: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +21,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # Adicione aqui os seus ativos
+  assets:
+    - assets/images/reserva_sala_logo.png  # Caminho para a imagem
