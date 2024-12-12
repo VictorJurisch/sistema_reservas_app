@@ -1,0 +1,1 @@
+ C:\\Users\\victor.purri\\consulta_reservas\\.dart_tool\\flutter_build\\826319f0871b3ad8daa3e2d4837dc2e1\\native_assets.yaml: 

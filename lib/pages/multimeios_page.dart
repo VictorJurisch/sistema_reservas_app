@@ -25,8 +25,8 @@ class _MultimeiosPageState extends State<MultimeiosPage> {
   String? _publico = 'Selecione um Público'; // Valor inicial definido como "Selecione um Público"
   bool _aAinfInterno = false;
   bool _aAscomInterno = false;
-  bool _aAinfExterno = false;
-  bool _aAscomExterno = false;
+  final bool _aAinfExterno = false;
+  final bool _aAscomExterno = false;
   bool _cafeAguaExterno = false;
   bool _coffeBreakExterno = false;
   DateTime _selectedDate = DateTime.now();
@@ -313,11 +313,11 @@ void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
               Center(
                 child: ElevatedButton(
                   onPressed: _enviarFormulario,
-                  child: const Text('Enviar Reserva'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   ),
+                  child: const Text('Enviar Reserva'),
                 ),
               ),
             ],
